@@ -7,8 +7,7 @@ import CreateArea from "./CreateArea";
 function App() {
   const [list,setList] = useState([])
 
-  const handleAddNote=(note,event)=>{
-    event.preventDefault();
+  const handleAddNote=(note)=>{
     setList((value)=>{
       return[
         ...value,
@@ -18,12 +17,11 @@ function App() {
   }
 
   const handleDeleteNote=(id)=>{
-    console.log("clicked " + id)
     setList((prevValue)=>{
       return(
-        prevValue.filter((i)=>{
+        prevValue.filter((item,  index)=>{
           return(
-            id !== i
+            index !== id
           )
         })      
       )
